@@ -1,0 +1,29 @@
+*{
+	/* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+	font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+.bg-red {
+	background-color: rgba(202, 60, 60, 1);
+}
+.btn-brown {
+	background-color: rgb(173, 110, 73);
+	border: rgb(173, 110, 73);
+	border-radius: 20px;
+	transition: rgb(173, 110, 73);
+}
+.btn-brown:hover {
+	background-color: rgb(141, 93, 65);
+	border-color: rgb(141, 93, 65);
+}
+.mt-6{
+	margin-top: 200px !important;
+}
+.ms-6{
+	margin-left: -100px !important;
+	z-index: -1;
+	
+}
+
+.bg-pink{
+	background-color: rgb(255, 214, 221);
+}
