@@ -1,38 +1,39 @@
-
-<footer class="bg-dark text-white mt-5 pt-4 pb-3 text-center">
-
+<footer class="bg-black text-white pt-5 pb-3 text-center">
     <div class="container">
 
-        <div class="row">
+        <h4 class="mb-3">Dresscode</h4>
 
+        <p class="text-secondary mb-4">
+            Изготовление современной мебели по индивидуальным размерам
+        </p>
 
-            <div class="col-md-4 mb-3">
-                <h5>CinemaCity</h5>
+        <div class="d-flex justify-content-center gap-4 mb-4 flex-wrap">
+            <a href="" class="text-secondary text-decoration-none">Главная</a>
 
-            </div>
+            <a href="" class="text-secondary text-decoration-none">Каталог</a>
 
+            <a href="" class="text-secondary text-decoration-none">О компании</a>
 
-            <div class="col-md-4 mb-3">
-                <h5>Контакты</h5>
-                <p class="mb-1">г. Москва, ул. Примерная, 10</p>
-                <p class="mb-1">+7 (999) 123-45-67</p>
-                <p class="mb-0">cinema@mail.ru</p>
-            </div>
+            <a href="" class="text-secondary text-decoration-none">Отзывы</a>
 
+            <a href="" class="text-secondary text-decoration-none">Контакты</a>
+        </div>
 
-            <div class="col-md-4 mb-3">
-                <h5>Навигация</h5>
-                <a href="" class="d-block text-white text-decoration-none">Главная</a>
-                <a href="" class="d-block text-white text-decoration-none">Афиша</a>
-                <a href="" class="d-block text-white text-decoration-none">Личный кабинет</a>
-            </div>
+        <div class="mb-4">
+            <p class="text-secondary mb-1">
+                +7 (999) 123-45-67
+            </p>
 
+            <p class="text-secondary mb-1">
+                info@shkafy.ru
+            </p>
+
+            <p class="text-secondary">
+                Пн–Вс 09:00–21:00
+            </p>
         </div>
 
 
 
-
-
     </div>
-
 </footer>

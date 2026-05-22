@@ -20,24 +20,69 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\WebController::class, 'index'])->name('index');
+Route::get('/about', [App\Http\Controllers\WebController::class, 'about'])->name('about');
 
-Route::get('/afisha', [App\Http\Controllers\WebController::class, 'afisha'])->name('afisha');
-Route::get('/account', [App\Http\Controllers\WebController::class, 'account'])->name('account');
-Route::get('/schedule/{date?}', [App\Http\Controllers\WebController::class, 'schedule'])->name('schedule');
-Route::get('/card/{id}', [App\Http\Controllers\WebController::class, 'card'])->name('card');
-
-Route::post('/buy', [App\Http\Controllers\WebController::class, 'buy'])->name('buy')->middleware('auth');
-
-Route::get('/admin/films', [App\Http\Controllers\WebController::class, 'films'])->name('admin.films')->middleware('auth');
-Route::post('/admin/films/add', [App\Http\Controllers\WebController::class, 'addFilm'])->name('admin.films.addFilm');
-Route::get('/admin/films/delete/{id}', [App\Http\Controllers\WebController::class, 'deleteFilm']);
-Route::post('/admin/films/update/{id}', [App\Http\Controllers\WebController::class, 'updateFilm']);
-
-
-Route::get('/admin/sessions', [App\Http\Controllers\WebController::class, 'sessions'])->name('admin.sessions')->middleware('auth');
-Route::post('/admin/sessions/add', [App\Http\Controllers\WebController::class, 'addSession'])->name('admin.sessions.addSession');
-Route::get('/admin/sessions/delete/{id}', [App\Http\Controllers\WebController::class, 'deleteSession']);
+Route::get('/feedbacks', [App\Http\Controllers\WebController::class, 'feedbacks'])->name('feedbacks');
+Route::post('/feedbacks', [App\Http\Controllers\WebController::class, 'feedback_form'])->name('feedback_form');
 
 
 
+Route::get('/user', [App\Http\Controllers\WebController::class, 'user'])->name('user');
 
+
+Route::get('/articles', [App\Http\Controllers\WebController::class, 'articles'])->name('articles');
+
+Route::get('/catalog', [App\Http\Controllers\WebController::class, 'catalog'])->name('catalog');
+
+Route::get('/cart', [App\Http\Controllers\WebController::class, 'cart'])->name('cart');
+
+Route::get('/contacts', [App\Http\Controllers\WebController::class, 'contacts'])->name('contacts');
+
+Route::get('/show', [App\Http\Controllers\WebController::class, 'show'])->name('show');
+
+Route::get('/show/{id}', [App\Http\Controllers\WebController::class, 'show'])->name('show');
+
+
+Route::post('/cart/add/{id}', [App\Http\Controllers\WebController::class, 'cart_add'])->name('cart.add');
+
+Route::get('/buy/{id}', [App\Http\Controllers\WebController::class, 'buy'])->name('buy');
+
+Route::post('/cart/update/{id}', [App\Http\Controllers\WebController::class, 'cart_update'])->name('cart.update');
+
+Route::delete('/cart/remove/{id}', [App\Http\Controllers\WebController::class, 'cart_remove'])->name('cart.remove');
+
+Route::post('/buy/cart',[App\Http\Controllers\WebController::class, 'buy_cart'])->name('buy.cart');
+
+Route::post('/repeat-order/{id}', [App\Http\Controllers\WebController::class, 'repeatOrder'])->name('repeat.order');
+
+
+
+
+Route::get('/admin/products', [App\Http\Controllers\WebController::class, 'products']);
+
+Route::post('/admin/products/add', [App\Http\Controllers\WebController::class, 'add'])->name('admin.products.add');
+
+Route::post('/admin/products/update/{id}', [App\Http\Controllers\WebController::class, 'update']);
+
+Route::get('/admin/products/delete/{id}', [App\Http\Controllers\WebController::class, 'delete']);
+
+
+Route::get('/admin/sales', [App\Http\Controllers\WebController::class, 'sales']);
+
+Route::post('/admin/sales/addSales', [App\Http\Controllers\WebController::class, 'addSales'])->name('admin.sales.addSales');
+
+Route::post('/admin/sales/updateSales/{id}', [App\Http\Controllers\WebController::class, 'updateSales']);
+
+Route::get('/admin/sales/deleteSales/{id}', [App\Http\Controllers\WebController::class, 'deleteSales']);
+
+
+
+
+Route::get('/admin/articlesAdmin', [App\Http\Controllers\WebController::class, 'articlesAdmin']);
+Route::post('/admin/articles/add', [App\Http\Controllers\WebController::class, 'addArticle'])->name('admin.articles.add');
+Route::post('/admin/articles/update/{id}', [App\Http\Controllers\WebController::class, 'updateArticle']);
+Route::get('/admin/articles/delete/{id}', [App\Http\Controllers\WebController::class, 'deleteArticle']);
+
+
+Route::get('/admin/feedbacksAdmin', [App\Http\Controllers\WebController::class, 'feedbacksAdmin']);
+Route::get('/admin/feedbacks/delete/{id}', [App\Http\Controllers\WebController::class, 'deleteFeedback']);

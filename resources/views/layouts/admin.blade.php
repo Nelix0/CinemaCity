@@ -7,54 +7,54 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Dresscode') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('public/assets/js/bootstrap.bundle.min.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{asset('public/assets/css/bootstrap.css')}}" rel="stylesheet">
-
 </head>
-<body>
-
+<body  class="min-vh-100 flex-column d-flex">
 <div id="app">
+    <header class="bg-black py-3">
+        <div class="container">
 
-    <nav class="navbar navbar-expand-lg bg-black navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{route('index')}}">CinemaCity</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{route('admin.films')}}">Фильмы</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.sessions')}}">Расписание</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('register')}}">Аккаунт</a>
-                    </li>
+            <ul class="nav justify-content-center">
+
+                <li class="nav-item">
+                    <a href="/admin/products" class="nav-link text-white">Продукты</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/admin/sales" class="nav-link text-white">Акции</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/admin/feedbacksAdmin" class="nav-link text-white">Отзывы</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/admin/articlesAdmin" class="nav-link text-white">Полезные статьи</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('register')}}" class="nav-link text-white">Личный кабинет</a>
+                </li>
 
 
+            </ul>
 
-                </ul>
-
-            </div>
         </div>
-    </nav>
+    </header>
 
-    <main class="container mt-5">
+    <main class="py-4 flex-grow-1">
         @yield('content')
     </main>
-
 </div>
 </body>
 <div class="footer mt-auto">

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -21,9 +21,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-    public function email(){
-        return 'login';
-    }
+
     /**
      * Where to redirect users after login.
      *
@@ -42,11 +40,9 @@ class LoginController extends Controller
     }
 
     public function authenticated(Request $request, $user){
-        if ($user->role_id === 1){
-            return redirect('/admin/films');
+        if ((int)$user->role_id === 1){
+            return redirect('/admin/products');
         }
         return redirect('/');
     }
-
-
 }
