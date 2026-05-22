@@ -93,8 +93,7 @@ class WebController extends Controller
     public function cart()
     {
         $cartItems = DB::table('cart')
-            ->join('products', 'cart.product_id', '=', 'products.id')
-            ->where('cart.user_id', auth()->id())
+            ->join('products', 'cart.product_id', '=', 'products.id')->where('cart.user_id', auth()->id())
             ->select(
                 'cart.id',
                 'cart.quantity',
@@ -103,8 +102,7 @@ class WebController extends Controller
                 'products.img',
                 'products.width',
                 'products.height'
-            )
-            ->get();
+            )->get();
 
         $total = 0;
 
@@ -127,27 +125,14 @@ class WebController extends Controller
         $cartItems = DB::table('cart')
             ->join('products', 'cart.product_id', '=', 'products.id')
             ->where('cart.user_id', auth()->id())
-            ->select(
-                'cart.quantity',
-                'products.id as product_id',
-                'products.title',
-                'products.price'
-            )
-            ->get();
+            ->select('cart.quantity', 'products.id as product_id', 'products.title', 'products.price')->get();
 
         foreach ($cartItems as $item) {
-            DB::table('orders')->insert([
-                'user_id' => auth()->id(),
-                'product_id' => $item->product_id,
-                'price' => $item->price,
-                'quantity' => $item->quantity,
-                'created_at' => now()
+            DB::table('orders')->insert(['user_id' => auth()->id(), 'product_id' => $item->product_id, 'price' => $item->price, 'quantity' => $item->quantity, 'created_at' => now()
             ]);
         }
 
-        DB::table('cart')
-            ->where('user_id', auth()->id())
-            ->delete();
+        DB::table('cart')->where('user_id', auth()->id())->delete();
 
         return redirect()->route('user')->with('success', 'Заказ оформлен');
     }
@@ -189,6 +174,24 @@ class WebController extends Controller
 
         return redirect()->back()->with('success', 'Товар добавлен в заказы');
     }
+
+    public function buySales($id)
+    {
+        $sale = DB::table('sales')->where('id', $id)->first();
+
+        DB::table('orders')->insert([
+            'user_id' => auth()->id(),
+            'product_id' => $sale->id,
+            'quantity' => 1,
+            'price' => $sale->price,
+            'status' => 'new',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Товар добавлен в заказы');
+    }
+
 
     public function repeatOrder($id)
     {

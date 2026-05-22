@@ -47,6 +47,9 @@ Route::post('/cart/add/{id}', [App\Http\Controllers\WebController::class, 'cart_
 
 Route::get('/buy/{id}', [App\Http\Controllers\WebController::class, 'buy'])->name('buy');
 
+Route::get('/buySales/{id}', [App\Http\Controllers\WebController::class, 'buySales'])->name('buySales');
+
+
 Route::post('/cart/update/{id}', [App\Http\Controllers\WebController::class, 'cart_update'])->name('cart.update');
 
 Route::delete('/cart/remove/{id}', [App\Http\Controllers\WebController::class, 'cart_remove'])->name('cart.remove');
